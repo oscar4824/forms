@@ -8,7 +8,7 @@ export const renderAbout = (req, res) => {
   res.render("about");
 };
 export const renderRespuestaForm = (req, res) => {
-  res.render("respuesta/new-Respuesta");
+  res.render("respuesta/new-respuesta");
 }
 
 export const createNewRepuesta = async (req, res) => {

@@ -63,7 +63,6 @@ app.use((req, res, next) => {
 app.use(indexRoutes);
 app.use(userRoutes);
 app.use(notesRoutes);
-
 // static files
 app.use(express.static(path.join(__dirname, "public")));
 
