@@ -2,43 +2,83 @@ import { Schema, model } from "mongoose";
 
 const RespuestaSchema = new Schema(
   {
-    pregunta1: {
+    ambicion: {
       type: Number,
       required: true,
     },
-    pregunta2: {
+    energico: {
       type: Number,
       required: true,
     },
-    pregunta3: {
+    paciente: {
       type: Number,
       required: true,
     },
-    pregunta4: {
+    realista: {
         type: Number,
         required: true,
       },
-      pregunta5: {
+      sociable: {
         type: Number,
         required: true,
       },
-      pregunta6: {
+      imaginacion: {
         type: Number,
         required: true,
       },
-      pregunta7: {
+      justo: {
         type: Number,
         required: true,
       },
-      pregunta8: {
+      intuitivo: {
         type: Number,
         required: true,
       },
-      pregunta9: {
+      seguridad: {
         type: Number,
         required: true,
       },
-      pregunta10: {
+      analitica: {
+        type: Number,
+        required: true,
+      },
+      adaptable:{
+        type: Number,
+        required: true,
+      },
+      misterio:{
+        type: Number,
+        required: true,
+      },
+      entusiasmo:{
+        type: Number,
+        required: true,
+      },
+      tranquilo:{
+        type: Number,
+        required: true,
+      },
+      espiritual:{
+        type: Number,
+        required: true,
+      },
+      aventurero:{
+        type: Number,
+        required: true,
+      },
+      liderazgo:{
+        type: Number,
+        required: true,
+      },
+      etico:{
+        type: Number,
+        required: true,
+      },
+      empatico:{
+        type: Number,
+        required: true,
+      },
+      critica:{
         type: Number,
         required: true,
       },
