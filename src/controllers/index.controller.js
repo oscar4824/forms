@@ -5,6 +5,8 @@ export const renderIndex = (req, res) => {
 };
 
 export const renderAbout = (req, res) => {
+  
+
   res.render("about");
 };
 export const renderRespuestaForm = (req, res) => {
@@ -12,57 +14,119 @@ export const renderRespuestaForm = (req, res) => {
 }
 
 export const createNewRepuesta = async (req, res) => {
-  const { pregunta1, pregunta2, pregunta3, pregunta4, pregunta5, pregunta6, pregunta7, pregunta8, pregunta9, pregunta10 } = req.body;
+  const { ambicion, energico, paciente, realista, sociable, imaginacion, justo, intuitivo, seguridad, analitica, adaptable,
+    misterio, entusiasmo, tranquilo, espiritual, aventurero, liderazgo, etico, empatico, critica  } = req.body;
   const errors = [];
-  if (!pregunta1) {
-    errors.push({ text: "Porfavor Selecciona una Respuesta para la Pregunta 1" });
+  if (!ambicion) {
+    errors.push({ text: "Porfavor Selecciona una Respuesta para la Pregunta " });
   }
-  if (!pregunta2) {
-    errors.push({ text: "Porfavor Selecciona una Respuesta para la Pregunta 2" });
+  if (!energico) {
+    errors.push({ text: "Porfavor Selecciona una Respuesta para la Pregunta " });
   }
-  if (!pregunta3) {
-    errors.push({ text: "Porfavor Selecciona una Respuesta para la Pregunta 3" });
+  if (!paciente) {
+    errors.push({ text: "Porfavor Selecciona una Respuesta para la Pregunta " });
   }
-  if (!pregunta4) {
-    errors.push({ text: "Porfavor Selecciona una Respuesta para la Pregunta 4" });
+  if (!realista) {
+    errors.push({ text: "Porfavor Selecciona una Respuesta para la Pregunta " });
   }
-  if (!pregunta5) {
-    errors.push({ text: "Porfavor Selecciona una Respuesta para la Pregunta 5" });
+  if (!sociable) {
+    errors.push({ text: "Porfavor Selecciona una Respuesta para la Pregunta " });
   }
-  if (!pregunta6) {
-    errors.push({ text: "Porfavor Selecciona una Respuesta para la Pregunta 6" });
+  if (!imaginacion) {
+    errors.push({ text: "Porfavor Selecciona una Respuesta para la Pregunta " });
   }
-  if (!pregunta7) {
-    errors.push({ text: "Porfavor Selecciona una Respuesta para la Pregunta 7" });
+  if (!justo) {
+    errors.push({ text: "Porfavor Selecciona una Respuesta para la Pregunta" });
   }
-  if (!pregunta8) {
-    errors.push({ text: "Porfavor Selecciona una Respuesta para la Pregunta 8" });
+  if (!intuitivo) {
+    errors.push({ text: "Porfavor Selecciona una Respuesta para la Pregunta " });
   }
-  if (!pregunta9) {
-    errors.push({ text: "Porfavor Selecciona una Respuesta para la Pregunta 9" });
+  if (!seguridad) {
+    errors.push({ text: "Porfavor Selecciona una Respuesta para la Pregunta " });
   }
-  if (!pregunta10) {
-    errors.push({ text: "Porfavor Selecciona una Respuesta para la Pregunta 10" });
+  if (!analitica) {
+    errors.push({ text: "Porfavor Selecciona una Respuesta para la Pregunta " });
+  }
+  if (!adaptable) {
+    errors.push({ text: "Porfavor Selecciona una Respuesta para la Pregunta " });
+  }
+  if (!misterio) {
+    errors.push({ text: "Porfavor Selecciona una Respuesta para la Pregunta " });
+  }
+  if (!entusiasmo) {
+    errors.push({ text: "Porfavor Selecciona una Respuesta para la Pregunta " });
+  }
+  if (!tranquilo) {
+    errors.push({ text: "Porfavor Selecciona una Respuesta para la Pregunta " });
+  }
+  if (!espiritual) {
+    errors.push({ text: "Porfavor Selecciona una Respuesta para la Pregunta " });
+  }
+  if (!aventurero) {
+    errors.push({ text: "Porfavor Selecciona una Respuesta para la Pregunta" });
+  }
+  if (!liderazgo) {
+    errors.push({ text: "Porfavor Selecciona una Respuesta para la Pregunta" });
+  }
+  if (!etico) {
+    errors.push({ text: "Porfavor Selecciona una Respuesta para la Pregunta " });
+  }
+  if (!empatico) {
+    errors.push({ text: "Porfavor Selecciona una Respuesta para la Pregunta" });
+  }
+  if (!critica) {
+    errors.push({ text: "Porfavor Selecciona una Respuesta para la Pregunta" });
   }
   if (errors.length > 0) {
     res.render("respuesta/new-respuesta", {
       errors,
-    pregunta1,
-    pregunta2,
-    pregunta3,
-    pregunta4,
-    pregunta5,
-    pregunta6,
-    pregunta7,
-    pregunta8,
-    pregunta9,
-    pregunta10
+      ambicion,
+      energico,
+      paciente,
+      realista,
+      sociable,
+      imaginacion,
+      justo,
+      intuitivo,
+      seguridad,
+      analitica,
+      adaptable,
+      misterio, 
+      entusiasmo,
+      tranquilo,
+      espiritual,
+      aventurero, 
+      liderazgo,
+      etico,
+      empatico, 
+      critica
     });
   } else {
-    const newRespuesta= new Respuesta({ pregunta1, pregunta2, pregunta3, pregunta4, pregunta5, pregunta6, pregunta7, pregunta8, pregunta9, pregunta10});
+    const newRespuesta= new Respuesta({
+      ambicion,
+      energico,
+      paciente,
+      realista,
+      sociable,
+      imaginacion,
+      justo,
+      intuitivo,
+      seguridad,
+      analitica,
+      adaptable,
+      misterio, 
+      entusiasmo,
+      tranquilo,
+      espiritual,
+      aventurero, 
+      liderazgo,
+      etico,
+      empatico, 
+      critica
+    });
     // newRespuesta.user = req.user.id;
     await newRespuesta.save();
-    req.flash("success_msg", "Respuesta Añadida Correctamente");
+    req.flash("success_msg", "Respuesta Añadida Correctamente Gracias!!");
     res.redirect("/");
   }
 };
