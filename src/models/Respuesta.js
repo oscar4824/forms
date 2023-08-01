@@ -82,6 +82,10 @@ const RespuestaSchema = new Schema(
         type: Number,
         required: true,
       },
+      signo:{
+        type: Number,
+        required: true,
+      },
   },
   {
     timestamps: true,

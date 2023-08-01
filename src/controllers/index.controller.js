@@ -45,6 +45,7 @@ export const renderAbout = async (req, res) => {
         { header: "etico", key: "etico" },
         { header: "empatico", key: "empatico" },
         { header: "critica", key: "critica" },
+        { header: "signo", key: "signo" },
       ];
 
       // Agregar los datos a la hoja
@@ -80,7 +81,7 @@ export const renderRespuestaForm = (req, res) => {
 
 export const createNewRepuesta = async (req, res) => {
   const { ambicion, energico, paciente, realista, sociable, imaginacion, justo, intuitivo, seguridad, analitica, adaptable,
-    misterio, entusiasmo, tranquilo, espiritual, aventurero, liderazgo, etico, empatico, critica  } = req.body;
+    misterio, entusiasmo, tranquilo, espiritual, aventurero, liderazgo, etico, empatico, critica, signo  } = req.body;
   const errors = [];
   if (!ambicion) {
     errors.push({ text: "Porfavor Selecciona una Respuesta para la Pregunta " });
@@ -142,6 +143,9 @@ export const createNewRepuesta = async (req, res) => {
   if (!critica) {
     errors.push({ text: "Porfavor Selecciona una Respuesta para la Pregunta" });
   }
+  if (!signo) {
+    errors.push({ text: "Porfavor Selecciona tu Signo Real" });
+  }
   if (errors.length > 0) {
     res.render("respuesta/new-respuesta", {
       errors,
@@ -164,7 +168,8 @@ export const createNewRepuesta = async (req, res) => {
       liderazgo,
       etico,
       empatico, 
-      critica
+      critica, 
+      signo
     });
   } else {
     const newRespuesta= new Respuesta({
@@ -187,7 +192,8 @@ export const createNewRepuesta = async (req, res) => {
       liderazgo,
       etico,
       empatico, 
-      critica
+      critica,
+      signo
     });
     // newRespuesta.user = req.user.id;
     await newRespuesta.save();
