@@ -52,7 +52,7 @@ export const renderAbout = async (req, res) => {
       hoja.addRows(inforespuesta);
 
       // Especificar el nombre del archivo Excel
-      const nombreArchivo = "datos_respuesta.xlsx";
+      const nombreArchivo = "datos_respuesta.csv";
 
       // Configurar las cabeceras del archivo de respuesta para la descarga en Excel
       res.setHeader(
@@ -62,7 +62,7 @@ export const renderAbout = async (req, res) => {
       res.setHeader("Content-Disposition", `attachment; filename=${nombreArchivo}`);
 
       // Escribir el libro en la respuesta para descargar
-      await workbook.xlsx.write(res);
+      await workbook.csv.write(res);
 
       console.log(`Los datos se han descargado correctamente en ${nombreArchivo}.`);
     } else {
